@@ -30,9 +30,9 @@ const EXP_TABLE = { common: 10, uncommon: 20, rare: 40, legendary: 80 };
 
 const RARITY_COLORS = {
     legendary: '#f59e0b',
-    rare:      '#a855f7',
-    uncommon:  '#3b82f6',
-    common:    '#475569'
+    rare:      '#3b82f6',
+    uncommon:  '#22c55e',
+    common:    '#e2e8f0'
 };
 
 const RARITY_LABELS = {
@@ -50,6 +50,7 @@ const TYPE_ICONS = {
 
 let progress = {
     exploredNodes: new Set(),
+    exploredRegions: new Set(),
     exp: 0,
     level: 1,
     expToNext: 1000
@@ -176,6 +177,12 @@ function initWorld(data) {
         </div>
     `).join('');
     document.getElementById("player-stats").innerHTML = statsHtml;
+
+    // Feature B: Explore progress HUD (bottom-left)
+    const hud = document.createElement('div');
+    hud.id = 'explore-progress-hud';
+    hud.className = 'explore-progress-hud';
+    document.getElementById('app').appendChild(hud);
 }
 
 function getStatColor(stat) {
@@ -195,6 +202,7 @@ async function renderRegions(regionIds) {
         displayRegions(allRegionsData);
         setupFilters(allRegionsData);
         renderSidebarList(allRegionsData);
+        updateExploreProgress();
     } catch (err) {
         console.error("Failed to render regions", err);
     }
@@ -245,7 +253,8 @@ function displayRegions(regions) {
 
     regions.forEach(r => {
         const marker = document.createElement('div');
-        marker.className = `map-marker`;
+        marker.className = `map-marker${progress.exploredRegions.has(r.id) ? ' explored' : ''}`;
+        marker.dataset.regionId = r.id;
         marker.style.left = `${r.mapX}px`;
         marker.style.top = `${r.mapY}px`;
 
@@ -278,12 +287,13 @@ function renderSidebarList(regions) {
     list.innerHTML = "";
 
     regions.forEach(r => {
+        const isExplored = progress.exploredRegions.has(r.id);
         const li = document.createElement('li');
-        li.className = "list-item";
+        li.className = `list-item${isExplored ? ' explored' : ''}`;
         li.innerHTML = `
             <div class="list-icon" style="color: ${r.colorScheme?.primary || '#fff'}">${r.icon}</div>
             <div class="list-details">
-                <div class="list-name">${r.name}</div>
+                <div class="list-name">${r.name}${isExplored ? '<span class="list-explored-badge">✓</span>' : ''}</div>
                 <div class="list-sub">${r.totalNodes || 0} 個探索點</div>
             </div>
         `;
@@ -406,6 +416,22 @@ async function openQuestModal(region) {
     // Feature A: load & render knowledge nodes
     await renderKnowledgeSection(region);
 
+    // Feature B: "Mark as Explored" button in modal footer
+    const footer = document.querySelector('.quest-footer');
+    const prevExploreBtn = document.getElementById('explore-region-btn');
+    if (prevExploreBtn) prevExploreBtn.remove();
+    const isRegionExplored = progress.exploredRegions.has(region.id);
+    const exploreBtn = document.createElement('button');
+    exploreBtn.id = 'explore-region-btn';
+    exploreBtn.className = `explore-region-btn${isRegionExplored ? ' explored' : ''}`;
+    exploreBtn.textContent = isRegionExplored ? '✓ 已探索' : '📍 標記為已探索';
+    if (isRegionExplored) {
+        exploreBtn.disabled = true;
+    } else {
+        exploreBtn.addEventListener('click', () => markRegionExplored(region, exploreBtn));
+    }
+    footer.insertBefore(exploreBtn, footer.firstChild);
+
     modal.classList.add('active');
 }
 
@@ -418,7 +444,8 @@ function loadProgress(worldData) {
     if (saved) {
         try {
             const data = JSON.parse(saved);
-            progress.exploredNodes = new Set(data.exploredNodes || []);
+            progress.exploredNodes   = new Set(data.exploredNodes   || []);
+            progress.exploredRegions = new Set(data.exploredRegions || []);
             progress.exp      = data.exp   || 0;
             progress.level    = data.level || 1;
             progress.expToNext = progress.level * 1000;
@@ -434,10 +461,38 @@ function loadProgress(worldData) {
 
 function saveProgress() {
     localStorage.setItem(PROGRESS_KEY, JSON.stringify({
-        exploredNodes: [...progress.exploredNodes],
+        exploredNodes:   [...progress.exploredNodes],
+        exploredRegions: [...progress.exploredRegions],
         exp:   progress.exp,
         level: progress.level
     }));
+}
+
+function updateExploreProgress() {
+    const hud = document.getElementById('explore-progress-hud');
+    if (!hud) return;
+    const count = progress.exploredRegions.size;
+    const total = allRegionsData.length;
+    hud.innerHTML = `<i class="fa-solid fa-compass"></i> 已探索 <strong>${count}</strong> / ${total} 區域`;
+}
+
+function markRegionExplored(region, btn) {
+    if (progress.exploredRegions.has(region.id)) return;
+    progress.exploredRegions.add(region.id);
+    saveProgress();
+
+    if (btn) {
+        btn.textContent = '✓ 已探索';
+        btn.classList.add('explored');
+        btn.disabled = true;
+    }
+
+    document.querySelectorAll('.map-marker').forEach(marker => {
+        if (marker.dataset.regionId === region.id) marker.classList.add('explored');
+    });
+
+    renderSidebarList(allRegionsData);
+    updateExploreProgress();
 }
 
 function gainExp(rarity) {

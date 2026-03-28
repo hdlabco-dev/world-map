@@ -853,3 +853,96 @@ body {
     70%  { opacity: 1; }
     100% { opacity: 0; transform: translateY(-25px); }
 }
+
+/* ============================================================
+   Feature B: Explored Region Map Marker Effect
+   ============================================================ */
+
+.map-marker.explored .building-asset {
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));
+}
+
+.map-marker.explored .marker-label {
+    border-color: #10b981;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.map-marker.explored .marker-label::after {
+    content: ' ✓';
+    color: #10b981;
+}
+
+/* ============================================================
+   Feature B: Mark as Explored Button
+   ============================================================ */
+
+.explore-region-btn {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #10b981;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    transition: all 0.2s;
+    margin-right: 0.5rem;
+}
+
+.explore-region-btn:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.3);
+}
+
+.explore-region-btn.explored {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: rgba(16, 185, 129, 0.6);
+    cursor: default;
+}
+
+/* ============================================================
+   Feature B: Explore Progress HUD (bottom-left)
+   ============================================================ */
+
+.explore-progress-hud {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 40;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.explore-progress-hud strong {
+    color: #10b981;
+}
+
+.explore-progress-hud i {
+    color: var(--accent-gold);
+}
+
+/* ============================================================
+   Feature B: Sidebar List Explored Badge
+   ============================================================ */
+
+.list-explored-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    font-size: 0.6rem;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-weight: bold;
+}
