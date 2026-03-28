@@ -23,6 +23,38 @@ let startX, startY;
 let currentX = -1000, currentY = -500;
 let scale = 1;
 
+// --- Progress System Constants ---
+const PROGRESS_KEY = 'worldmap_progress';
+
+const EXP_TABLE = { common: 10, uncommon: 20, rare: 40, legendary: 80 };
+
+const RARITY_COLORS = {
+    legendary: '#f59e0b',
+    rare:      '#a855f7',
+    uncommon:  '#3b82f6',
+    common:    '#475569'
+};
+
+const RARITY_LABELS = {
+    legendary: '傳說',
+    rare:      '稀有',
+    uncommon:  '非凡',
+    common:    '普通'
+};
+
+const TYPE_ICONS = {
+    scroll:    'fa-scroll',
+    note:      'fa-note-sticky',
+    blueprint: 'fa-drafting-compass'
+};
+
+let progress = {
+    exploredNodes: new Set(),
+    exp: 0,
+    level: 1,
+    expToNext: 1000
+};
+
 function setupMapInteractions() {
     const viewport = document.getElementById("viewport");
 
@@ -131,11 +163,10 @@ function initWorld(data) {
     // Player HUD (now in sidebar)
     document.getElementById("player-name").textContent = data.player.name;
     document.getElementById("player-title").textContent = data.player.title;
-    document.getElementById("player-level").textContent = `Lv. ${data.player.level}`;
 
-    const expPercent = (data.player.experience / data.player.experienceToNext) * 100;
-    document.getElementById("exp-fill").style.width = `${expPercent}%`;
-    document.getElementById("exp-text").textContent = `${data.player.experience} / ${data.player.experienceToNext} EXP`;
+    // Load saved progress (overrides world.json defaults)
+    loadProgress(data);
+    updateExpUI();
 
     // Stats
     const statsHtml = Object.entries(data.player.stats).map(([key, val]) => `
@@ -330,7 +361,7 @@ modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('active');
 });
 
-function openQuestModal(region) {
+async function openQuestModal(region) {
     const color = region.colorScheme?.primary || '#fff';
     document.documentElement.style.setProperty('--region-color', color);
 
@@ -372,5 +403,199 @@ function openQuestModal(region) {
         alert(`系統傳送中... 即將進入【${region.name}】副本`);
     };
 
+    // Feature A: load & render knowledge nodes
+    await renderKnowledgeSection(region);
+
     modal.classList.add('active');
+}
+
+// ============================================================
+// Feature B: Progress System
+// ============================================================
+
+function loadProgress(worldData) {
+    const saved = localStorage.getItem(PROGRESS_KEY);
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            progress.exploredNodes = new Set(data.exploredNodes || []);
+            progress.exp      = data.exp   || 0;
+            progress.level    = data.level || 1;
+            progress.expToNext = progress.level * 1000;
+        } catch (e) {
+            console.warn('Progress data corrupted, resetting.', e);
+        }
+    } else {
+        progress.exp      = worldData.player.experience     || 0;
+        progress.level    = worldData.player.level          || 1;
+        progress.expToNext = worldData.player.experienceToNext || 1000;
+    }
+}
+
+function saveProgress() {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+        exploredNodes: [...progress.exploredNodes],
+        exp:   progress.exp,
+        level: progress.level
+    }));
+}
+
+function gainExp(rarity) {
+    const amount = EXP_TABLE[rarity] || 10;
+    progress.exp += amount;
+
+    let leveledUp = false;
+    while (progress.exp >= progress.expToNext) {
+        progress.exp -= progress.expToNext;
+        progress.level++;
+        progress.expToNext = progress.level * 1000;
+        leveledUp = true;
+    }
+
+    updateExpUI();
+    saveProgress();
+    if (leveledUp) showLevelUpToast();
+}
+
+function updateExpUI() {
+    document.getElementById('player-level').textContent = `Lv. ${progress.level}`;
+    const pct = (progress.exp / progress.expToNext) * 100;
+    document.getElementById('exp-fill').style.width = `${pct}%`;
+    document.getElementById('exp-text').textContent = `${progress.exp} / ${progress.expToNext} EXP`;
+}
+
+function showLevelUpToast() {
+    const toast = document.createElement('div');
+    toast.className = 'levelup-toast';
+    toast.textContent = `⬆ Level Up！Lv. ${progress.level}`;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2600);
+}
+
+// ============================================================
+// Feature A: Knowledge Node Browser
+// ============================================================
+
+async function renderKnowledgeSection(region) {
+    const questBody = document.querySelector('.quest-body');
+
+    // Remove stale section from previous modal open
+    const existing = document.getElementById('modal-knowledge');
+    if (existing) existing.remove();
+
+    const section = document.createElement('div');
+    section.className = 'knowledge-section';
+    section.id = 'modal-knowledge';
+
+    let nodes = [];
+    try {
+        const res = await fetch(`data/knowledge/${region.id}.json`);
+        if (res.ok) nodes = await res.json();
+    } catch (e) { /* region has no knowledge file */ }
+
+    if (nodes.length === 0) {
+        section.innerHTML = `
+            <div class="knowledge-section-title"><span>【 探索節點 】</span></div>
+            <p style="color:#64748b;text-align:center;font-size:0.8rem;padding:0.5rem 0;">此區域尚無知識節點。</p>
+        `;
+        questBody.appendChild(section);
+        return;
+    }
+
+    const exploredCount = nodes.filter(n => progress.exploredNodes.has(n.id)).length;
+    const progressPct   = Math.round((exploredCount / nodes.length) * 100);
+
+    section.innerHTML = `
+        <div class="knowledge-section-title">
+            <span>【 探索節點 】</span>
+            <span>${exploredCount} / ${nodes.length} 已探索</span>
+        </div>
+        <div class="region-progress-bar">
+            <div class="region-progress-fill" style="width:${progressPct}%"></div>
+        </div>
+        <div class="region-progress-text">${progressPct}% 完成度</div>
+        <div class="knowledge-nodes-list"></div>
+    `;
+
+    questBody.appendChild(section);
+
+    const list = section.querySelector('.knowledge-nodes-list');
+    nodes.forEach(node => list.appendChild(createNodeCard(node)));
+}
+
+function createNodeCard(node) {
+    const color      = RARITY_COLORS[node.rarity] || '#475569';
+    const label      = RARITY_LABELS[node.rarity] || node.rarity;
+    const expVal     = EXP_TABLE[node.rarity] || 10;
+    const icon       = TYPE_ICONS[node.type]   || 'fa-file';
+    const isExplored = progress.exploredNodes.has(node.id);
+
+    const card = document.createElement('div');
+    card.className = `knowledge-node${isExplored ? ' explored' : ''}`;
+    card.style.setProperty('--node-rarity-color', color);
+    card.dataset.nodeId = node.id;
+
+    const expBadgeHtml = isExplored
+        ? `<span class="node-exp-badge" style="color:#10b981">✓</span>`
+        : `<span class="node-exp-badge">+${expVal}</span>`;
+
+    const actionBtnHtml = isExplored
+        ? `<button class="node-explore-btn explored-btn" disabled>✓ 已探索</button>`
+        : `<button class="node-explore-btn" data-rarity="${node.rarity}">⚡ 探索此節點</button>`;
+
+    card.innerHTML = `
+        <div class="knowledge-node-header">
+            <i class="fa-solid ${icon} node-type-icon"></i>
+            <span class="node-title">${node.title}</span>
+            <span class="node-rarity-badge" style="background:${color}">${label}</span>
+            ${expBadgeHtml}
+        </div>
+        <div class="node-summary">
+            <p>${node.summary || '暫無摘要。'}</p>
+            ${actionBtnHtml}
+        </div>
+    `;
+
+    // Toggle summary on header click
+    card.querySelector('.knowledge-node-header').addEventListener('click', () => {
+        card.querySelector('.node-summary').classList.toggle('open');
+    });
+
+    // Explore button
+    const exploreBtn = card.querySelector('.node-explore-btn:not(.explored-btn)');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            exploreNode(node.id, node.rarity, card);
+        });
+    }
+
+    return card;
+}
+
+function exploreNode(nodeId, rarity, card) {
+    if (progress.exploredNodes.has(nodeId)) return;
+
+    progress.exploredNodes.add(nodeId);
+    gainExp(rarity);
+
+    // Update card appearance in-place
+    card.classList.add('explored');
+    const badge = card.querySelector('.node-exp-badge');
+    if (badge) { badge.style.color = '#10b981'; badge.textContent = '✓'; }
+    const btn = card.querySelector('.node-explore-btn');
+    if (btn) { btn.className = 'node-explore-btn explored-btn'; btn.disabled = true; btn.textContent = '✓ 已探索'; }
+
+    // Refresh region progress bar
+    const section = document.getElementById('modal-knowledge');
+    if (!section) return;
+    const total    = section.querySelectorAll('.knowledge-node').length;
+    const explored = section.querySelectorAll('.knowledge-node.explored').length;
+    const pct      = total > 0 ? Math.round((explored / total) * 100) : 0;
+    const fill  = section.querySelector('.region-progress-fill');
+    const text  = section.querySelector('.region-progress-text');
+    const label = section.querySelector('.knowledge-section-title span:last-child');
+    if (fill)  fill.style.width       = `${pct}%`;
+    if (text)  text.textContent       = `${pct}% 完成度`;
+    if (label) label.textContent      = `${explored} / ${total} 已探索`;
 }
