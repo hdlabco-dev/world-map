@@ -1,0 +1,33 @@
+{
+  "id": "frontend-district",
+  "name": "前端霓虹街區",
+  "subtitle": "構建視覺介面與使用者互動的華麗都市",
+  "icon": "✨",
+  "theme": "creative-dream",
+  "colorScheme": {
+    "primary": "#ff6ec7",
+    "accent": "#ffd700",
+    "background": "#1a0a2e"
+  },
+  "position": {
+    "x": 90,
+    "y": 55
+  },
+  "progress": 0,
+  "phase": "Phase 7",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Prism",
+      "role": "Dreamweaver",
+      "greeting": "色彩與形狀在這裡交織，歡迎來到創意的殿堂。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "系統架構",
+      "fileCount": 0
+    }
+  ]
+}

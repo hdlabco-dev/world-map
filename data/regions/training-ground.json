@@ -1,0 +1,49 @@
+{
+  "id": "training-ground",
+  "name": "勇者修煉場",
+  "subtitle": "鍛鍊肉體與體能極限的武育館",
+  "icon": "🏃",
+  "theme": "classical-magic",
+  "colorScheme": {
+    "primary": "#8B6914",
+    "accent": "#FFD700",
+    "background": "#1a1a2e"
+  },
+  "position": {
+    "x": 50,
+    "y": 60
+  },
+  "progress": 0,
+  "phase": "Phase 28",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Archon",
+      "role": "Lorekeeper",
+      "greeting": "古老的智慧在這裡等待著被發現。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "MLB",
+      "fileCount": 0
+    },
+    {
+      "name": "NBA",
+      "fileCount": 0
+    },
+    {
+      "name": "健身",
+      "fileCount": 0
+    },
+    {
+      "name": "籃球",
+      "fileCount": 0
+    },
+    {
+      "name": "跑步",
+      "fileCount": 0
+    }
+  ]
+}

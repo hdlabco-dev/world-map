@@ -1,0 +1,28 @@
+{
+  "id": "culinary-kitchen",
+  "name": "風味煉金房",
+  "subtitle": "調配食材與烹飪技法的實驗廚房",
+  "icon": "🍳",
+  "theme": "creative-dream",
+  "colorScheme": {
+    "primary": "#ff6ec7",
+    "accent": "#ffd700",
+    "background": "#1a0a2e"
+  },
+  "position": {
+    "x": 50,
+    "y": 80
+  },
+  "progress": 0,
+  "phase": "Phase 11",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Prism",
+      "role": "Dreamweaver",
+      "greeting": "色彩與形狀在這裡交織，歡迎來到創意的殿堂。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

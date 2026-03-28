@@ -1,0 +1,61 @@
+{
+  "worldName": "我的知識世界",
+  "theme": "fantasy-cyberpunk",
+  "author": "旅行者",
+  "buildTime": "2026-02-27T16:22:06.270009+00:00",
+  "player": {
+    "name": "旅行者",
+    "title": "初心者",
+    "level": 1,
+    "experience": 0,
+    "experienceToNext": 1000,
+    "stats": {
+      "wisdom": 10,
+      "creativity": 165,
+      "charisma": 10,
+      "endurance": 10
+    },
+    "skills": 0,
+    "sessions": 1
+  },
+  "regionIds": [
+    "ai-quota-meter",
+    "ai-learning-hub",
+    "devops-control-room",
+    "stanford-archives",
+    "usi-database",
+    "healing-sanctuary",
+    "frontend-district",
+    "startup-bazaar",
+    "delivery-guild",
+    "music-tavern",
+    "culinary-kitchen",
+    "backend-core",
+    "travel-map",
+    "book-library",
+    "monthly-tracker",
+    "monthly-schedule",
+    "daily-fragments",
+    "version-control-vault",
+    "cinema-illusions",
+    "hardware-forge",
+    "programming-sanctuary",
+    "online-courses",
+    "self-media-broadcasting",
+    "self-growth-dojo",
+    "paper-research",
+    "wealth-vault",
+    "cs-fundamentals",
+    "training-ground",
+    "unclassified-void",
+    "interview-arena",
+    "pet-aviary"
+  ],
+  "totalRegions": 31,
+  "totalKnowledgeNodes": 0,
+  "stats": {
+    "scanned_sources": 31,
+    "total_regions": 31,
+    "total_nodes": 0
+  }
+}

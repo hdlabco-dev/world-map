@@ -1,0 +1,30 @@
+{
+  "id": "dream-garden",
+  "name": "夢境花園",
+  "subtitle": "各種靈感、點子、隨想筆記",
+  "icon": "🌿",
+  "theme": "mystical-nature",
+  "colorScheme": {
+    "primary": "#4ade80",
+    "accent": "#a78bfa",
+    "background": "#0a1a1a"
+  },
+  "position": {
+    "x": 35,
+    "y": 45
+  },
+  "progress": 100,
+  "phase": "Phase 4",
+  "totalNodes": 1,
+  "npcs": [
+    {
+      "name": "Verdant",
+      "role": "Keeper of Seeds",
+      "greeting": "每一個靈感都是一顆種子，在這片花園中靜待發芽。"
+    }
+  ],
+  "knowledgeNodeIds": [
+    "dream-garden--靈感筆記-md"
+  ],
+  "subfolders": []
+}

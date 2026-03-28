@@ -1,0 +1,28 @@
+{
+  "id": "daily-tracker",
+  "name": "冒險者任務板",
+  "subtitle": "追蹤每日任務、目標與經驗值增長",
+  "icon": "📝",
+  "theme": "corporate-order",
+  "colorScheme": {
+    "primary": "#64748b",
+    "accent": "#f59e0b",
+    "background": "#1a1a1a"
+  },
+  "position": {
+    "x": 40,
+    "y": 25
+  },
+  "progress": 0,
+  "phase": "Phase 14",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Director",
+      "role": "Strategist",
+      "greeting": "秩序帶來效率，歡迎來到指揮中心。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

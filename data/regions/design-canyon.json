@@ -1,0 +1,31 @@
+{
+  "id": "design-canyon",
+  "name": "設計峽谷",
+  "subtitle": "設計理論、靈感與視覺參考",
+  "icon": "🎨",
+  "theme": "creative-dream",
+  "colorScheme": {
+    "primary": "#ff6ec7",
+    "accent": "#ffd700",
+    "background": "#1a0a2e"
+  },
+  "position": {
+    "x": 50,
+    "y": 15
+  },
+  "progress": 100,
+  "phase": "Phase 1",
+  "totalNodes": 2,
+  "npcs": [
+    {
+      "name": "Prism",
+      "role": "Dreamweaver",
+      "greeting": "色彩與形狀在這裡交織，歡迎來到創意的殿堂。"
+    }
+  ],
+  "knowledgeNodeIds": [
+    "design-canyon--UI設計原則-md",
+    "design-canyon--色彩心理學-md"
+  ],
+  "subfolders": []
+}

@@ -1,0 +1,85 @@
+{
+  "id": "programming-sanctuary",
+  "name": "符文語言神殿",
+  "subtitle": "破譯各種程式語法與基底邏輯的聖地",
+  "icon": "💻",
+  "theme": "classical-magic",
+  "colorScheme": {
+    "primary": "#8B6914",
+    "accent": "#FFD700",
+    "background": "#1a1a2e"
+  },
+  "position": {
+    "x": 50,
+    "y": 15
+  },
+  "progress": 0,
+  "phase": "Phase 21",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Archon",
+      "role": "Lorekeeper",
+      "greeting": "古老的智慧在這裡等待著被發現。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "C",
+      "fileCount": 0
+    },
+    {
+      "name": "C#",
+      "fileCount": 0
+    },
+    {
+      "name": "C++",
+      "fileCount": 0
+    },
+    {
+      "name": "Java",
+      "fileCount": 0
+    },
+    {
+      "name": "JavaScript",
+      "fileCount": 0
+    },
+    {
+      "name": "Kotlin",
+      "fileCount": 0
+    },
+    {
+      "name": "Node.js",
+      "fileCount": 0
+    },
+    {
+      "name": "Objective-C",
+      "fileCount": 0
+    },
+    {
+      "name": "Perl",
+      "fileCount": 0
+    },
+    {
+      "name": "Python",
+      "fileCount": 0
+    },
+    {
+      "name": "Ruby",
+      "fileCount": 0
+    },
+    {
+      "name": "Rust",
+      "fileCount": 0
+    },
+    {
+      "name": "Swift",
+      "fileCount": 0
+    },
+    {
+      "name": "Unity",
+      "fileCount": 0
+    }
+  ]
+}

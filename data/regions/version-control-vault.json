@@ -1,0 +1,41 @@
+{
+  "id": "version-control-vault",
+  "name": "時空檔案庫",
+  "subtitle": "掌控時間線分歧與版本回溯的技術",
+  "icon": "⏱️",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 45,
+    "y": 75
+  },
+  "progress": 0,
+  "phase": "Phase 18",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "CICD",
+      "fileCount": 0
+    },
+    {
+      "name": "GITHUB",
+      "fileCount": 0
+    },
+    {
+      "name": "GITLAB",
+      "fileCount": 0
+    }
+  ]
+}

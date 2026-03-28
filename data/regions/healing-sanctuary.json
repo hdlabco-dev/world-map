@@ -1,0 +1,28 @@
+{
+  "id": "healing-sanctuary",
+  "name": "生機與治癒神殿",
+  "subtitle": "鑽研身心靈健康與現代醫療的知識",
+  "icon": "🌿",
+  "theme": "mystical-nature",
+  "colorScheme": {
+    "primary": "#4ade80",
+    "accent": "#a78bfa",
+    "background": "#0a1a1a"
+  },
+  "position": {
+    "x": 10,
+    "y": 55
+  },
+  "progress": 0,
+  "phase": "Phase 6",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Verdant",
+      "role": "Keeper of Seeds",
+      "greeting": "每一個靈感都是一顆種子，在這片花園中靜待發芽。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

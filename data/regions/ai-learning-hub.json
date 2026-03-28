@@ -1,0 +1,85 @@
+{
+  "id": "ai-learning-hub",
+  "name": "智慧煉金塔",
+  "subtitle": "鑽研人工智慧與機器學習的尖端法門",
+  "icon": "🧠",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 20,
+    "y": 30
+  },
+  "progress": 0,
+  "phase": "Phase 2",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "AI agent 學習",
+      "fileCount": 0
+    },
+    {
+      "name": "AI Coding",
+      "fileCount": 0
+    },
+    {
+      "name": "AI 製圖",
+      "fileCount": 0
+    },
+    {
+      "name": "AI 製片剪輯",
+      "fileCount": 0
+    },
+    {
+      "name": "antigravity 反重力",
+      "fileCount": 0
+    },
+    {
+      "name": "chatgpt",
+      "fileCount": 0
+    },
+    {
+      "name": "claude_code",
+      "fileCount": 0
+    },
+    {
+      "name": "exo",
+      "fileCount": 0
+    },
+    {
+      "name": "gemini",
+      "fileCount": 0
+    },
+    {
+      "name": "Google AI Studio",
+      "fileCount": 0
+    },
+    {
+      "name": "LLM 基礎知識學習",
+      "fileCount": 0
+    },
+    {
+      "name": "notion",
+      "fileCount": 0
+    },
+    {
+      "name": "Openclaw 龍蝦",
+      "fileCount": 0
+    },
+    {
+      "name": "Vibe Coding",
+      "fileCount": 0
+    }
+  ]
+}

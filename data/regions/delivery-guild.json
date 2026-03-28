@@ -1,0 +1,41 @@
+{
+  "id": "delivery-guild",
+  "name": "疾風速遞公會",
+  "subtitle": "紀錄穿梭於城市間的跑腿與外送任務",
+  "icon": "🛵",
+  "theme": "social-hub",
+  "colorScheme": {
+    "primary": "#f97316",
+    "accent": "#ec4899",
+    "background": "#1a100a"
+  },
+  "position": {
+    "x": 25,
+    "y": 70
+  },
+  "progress": 0,
+  "phase": "Phase 9",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Herald",
+      "role": "Diplomat",
+      "greeting": "消息在這裡匯聚，人脈在這裡交織。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "FP 每日每月金額紀錄",
+      "fileCount": 0
+    },
+    {
+      "name": "Ubereat 581每日每月金額紀錄",
+      "fileCount": 0
+    },
+    {
+      "name": "跑單技巧",
+      "fileCount": 0
+    }
+  ]
+}

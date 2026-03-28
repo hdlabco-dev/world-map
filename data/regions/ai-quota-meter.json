@@ -1,0 +1,28 @@
+{
+  "id": "ai-quota-meter",
+  "name": "魔力配額計量儀",
+  "subtitle": "監控施法資源與雲端算力消耗",
+  "icon": "🔋",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 50,
+    "y": 15
+  },
+  "progress": 0,
+  "phase": "Phase 1",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

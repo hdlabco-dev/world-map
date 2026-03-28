@@ -1,0 +1,37 @@
+{
+  "id": "wealth-vault",
+  "name": "黃金龍地下金庫",
+  "subtitle": "掌管資源分配、投資與財源累積的秘庫",
+  "icon": "💰",
+  "theme": "ancient-knowledge",
+  "colorScheme": {
+    "primary": "#d4a017",
+    "accent": "#e0e0e0",
+    "background": "#1a150a"
+  },
+  "position": {
+    "x": 10,
+    "y": 55
+  },
+  "progress": 0,
+  "phase": "Phase 26",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Chronos",
+      "role": "Historian",
+      "greeting": "時間是最好的老師，歷史中藏著無數寶藏。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "投資理財",
+      "fileCount": 0
+    },
+    {
+      "name": "每日每月收入支出紀錄",
+      "fileCount": 0
+    }
+  ]
+}

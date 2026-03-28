@@ -1,0 +1,31 @@
+{
+  "id": "mechanical-zone",
+  "name": "機械區",
+  "subtitle": "程式語言、框架、工具使用文件",
+  "icon": "⚙️",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 20,
+    "y": 30
+  },
+  "progress": 100,
+  "phase": "Phase 2",
+  "totalNodes": 2,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [
+    "mechanical-zone--Git工作流程-md",
+    "mechanical-zone--Python常用技巧-md"
+  ],
+  "subfolders": []
+}

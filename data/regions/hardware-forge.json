@@ -1,0 +1,57 @@
+{
+  "id": "hardware-forge",
+  "name": "碳基與矽基鍛造廠",
+  "subtitle": "組裝與研究硬體晶片的地下工坊",
+  "icon": "🔧",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 50,
+    "y": 50
+  },
+  "progress": 0,
+  "phase": "Phase 20",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "VLSI",
+      "fileCount": 0
+    },
+    {
+      "name": "數位邏輯系統",
+      "fileCount": 0
+    },
+    {
+      "name": "計算機概論",
+      "fileCount": 0
+    },
+    {
+      "name": "計算機組織",
+      "fileCount": 0
+    },
+    {
+      "name": "電子學",
+      "fileCount": 0
+    },
+    {
+      "name": "電子設計自動化導論EDA",
+      "fileCount": 0
+    },
+    {
+      "name": "電路學",
+      "fileCount": 0
+    }
+  ]
+}

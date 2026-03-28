@@ -1,0 +1,28 @@
+{
+  "id": "book-library",
+  "name": "真理大圖書館",
+  "subtitle": "無數智者心血結晶的藏書閣",
+  "icon": "📚",
+  "theme": "ancient-knowledge",
+  "colorScheme": {
+    "primary": "#d4a017",
+    "accent": "#e0e0e0",
+    "background": "#1a150a"
+  },
+  "position": {
+    "x": 40,
+    "y": 25
+  },
+  "progress": 0,
+  "phase": "Phase 14",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Chronos",
+      "role": "Historian",
+      "greeting": "時間是最好的老師，歷史中藏著無數寶藏。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

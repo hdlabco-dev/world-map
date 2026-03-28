@@ -1,0 +1,52 @@
+[
+  {
+    "id": "mechanical-zone--Git工作流程-md",
+    "title": "Git 工作流程",
+    "regionId": "mechanical-zone",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "git pull 取得最新 git checkout -b feature/xxx 建立分支 開發 + commit git push origin feature/xxx 建立 Pull Request Code Review → Merge git stash — 暫存修改 git log --oneline -10 — 查看最近紀錄 git diff --staged — 查看暫存區差異 g...",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\技術文件\\Git工作流程.md",
+    "relativePath": "Git工作流程.md",
+    "subcategory": "",
+    "tags": [
+      "基本流程",
+      "常用指令"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 297,
+      "lines": 16,
+      "headings": 3,
+      "codeBlocks": 0
+    }
+  },
+  {
+    "id": "mechanical-zone--Python常用技巧-md",
+    "title": "Python 常用技巧",
+    "regionId": "mechanical-zone",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "squares = x2 for x in range10 merged = dict1 | dict2 from pathlib import Path p = Path\"folder\" / \"subfolder\" / \"file.txt\" content = Path\"file.md\".readtextencoding=\"utf-8\"",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\技術文件\\Python常用技巧.md",
+    "relativePath": "Python常用技巧.md",
+    "subcategory": "",
+    "tags": [
+      "檔案讀取",
+      "字典合併 (3.9+)",
+      "路徑處理",
+      "列表推導式"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 298,
+      "lines": 23,
+      "headings": 5,
+      "codeBlocks": 4
+    }
+  }
+]

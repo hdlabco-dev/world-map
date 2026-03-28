@@ -1,0 +1,28 @@
+{
+  "id": "self-media-broadcasting",
+  "name": "全域廣播中心",
+  "subtitle": "研究流量密碼與內容傳播的通訊塔",
+  "icon": "📡",
+  "theme": "social-hub",
+  "colorScheme": {
+    "primary": "#f97316",
+    "accent": "#ec4899",
+    "background": "#1a100a"
+  },
+  "position": {
+    "x": 80,
+    "y": 30
+  },
+  "progress": 0,
+  "phase": "Phase 23",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Herald",
+      "role": "Diplomat",
+      "greeting": "消息在這裡匯聚，人脈在這裡交織。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

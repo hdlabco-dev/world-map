@@ -1,0 +1,37 @@
+{
+  "id": "cinema-illusions",
+  "name": "幻影劇院",
+  "subtitle": "放映著各種電影與劇集的視覺聖殿",
+  "icon": "🎬",
+  "theme": "creative-dream",
+  "colorScheme": {
+    "primary": "#ff6ec7",
+    "accent": "#ffd700",
+    "background": "#1a0a2e"
+  },
+  "position": {
+    "x": 55,
+    "y": 75
+  },
+  "progress": 0,
+  "phase": "Phase 19",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Prism",
+      "role": "Dreamweaver",
+      "greeting": "色彩與形狀在這裡交織，歡迎來到創意的殿堂。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "DISNEY+",
+      "fileCount": 0
+    },
+    {
+      "name": "NETFLIX",
+      "fileCount": 0
+    }
+  ]
+}

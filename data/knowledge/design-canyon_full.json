@@ -1,0 +1,52 @@
+[
+  {
+    "id": "design-canyon--UI設計原則-md",
+    "title": "UI 設計原則",
+    "regionId": "design-canyon",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "保持視覺元素的一致性 統一的色彩系統 統一的間距規則 清晰的導航結構 即時的使用者回饋 錯誤容忍設計 留白的藝術 黃金比例構圖 動態視覺層次",
+    "content": "# UI 設計原則\n\n## 一致性\n- 保持視覺元素的一致性\n- 統一的色彩系統\n- 統一的間距規則\n\n## 可用性\n- 清晰的導航結構\n- 即時的使用者回饋\n- 錯誤容忍設計\n\n## 美學\n- 留白的藝術\n- 黃金比例構圖\n- 動態視覺層次\n",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\設計筆記\\UI設計原則.md",
+    "relativePath": "UI設計原則.md",
+    "subcategory": "",
+    "tags": [
+      "可用性",
+      "美學",
+      "一致性"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 122,
+      "lines": 17,
+      "headings": 4,
+      "codeBlocks": 0
+    }
+  },
+  {
+    "id": "design-canyon--色彩心理學-md",
+    "title": "色彩心理學",
+    "regionId": "design-canyon",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "不同顏色會觸發不同的心理反應： | 顏色 | 情緒反應 | 適用場景 | |------|---------|---------| | 藍色 | 信任、專業 | 企業、科技 | | 紅色 | 緊急、熱情 | CTA、警告 | | 綠色 | 自然、成長 | 健康、環保 | | 紫色 | 神秘、高貴 | 奢侈品、創意 | | 橙色 | 活力、友善 | 社群、娛樂 | 60-30-10 法則 對比色搭配...",
+    "content": "# 色彩心理學\n\n不同顏色會觸發不同的心理反應：\n\n| 顏色 | 情緒反應 | 適用場景 |\n|------|---------|---------|\n| 藍色 | 信任、專業 | 企業、科技 |\n| 紅色 | 緊急、熱情 | CTA、警告 |\n| 綠色 | 自然、成長 | 健康、環保 |\n| 紫色 | 神秘、高貴 | 奢侈品、創意 |\n| 橙色 | 活力、友善 | 社群、娛樂 |\n\n## 配色技巧\n- 60-30-10 法則\n- 對比色搭配\n- 類比色和諧\n",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\設計筆記\\色彩心理學.md",
+    "relativePath": "色彩心理學.md",
+    "subcategory": "",
+    "tags": [
+      "配色技巧"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 232,
+      "lines": 17,
+      "headings": 2,
+      "codeBlocks": 0
+    }
+  }
+]

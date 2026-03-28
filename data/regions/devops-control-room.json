@@ -1,0 +1,28 @@
+{
+  "id": "devops-control-room",
+  "name": "自動化維運中樞",
+  "subtitle": "掌控基礎設施與自動化部署的控制室",
+  "icon": "🔄",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 80,
+    "y": 30
+  },
+  "progress": 0,
+  "phase": "Phase 3",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

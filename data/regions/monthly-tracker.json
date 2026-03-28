@@ -1,0 +1,28 @@
+{
+  "id": "monthly-tracker",
+  "name": "時鐘塔觀測站",
+  "subtitle": "監測每月修行與任務的進度數據",
+  "icon": "�",
+  "theme": "corporate-order",
+  "colorScheme": {
+    "primary": "#64748b",
+    "accent": "#f59e0b",
+    "background": "#1a1a1a"
+  },
+  "position": {
+    "x": 60,
+    "y": 25
+  },
+  "progress": 0,
+  "phase": "Phase 15",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Director",
+      "role": "Strategist",
+      "greeting": "秩序帶來效率，歡迎來到指揮中心。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

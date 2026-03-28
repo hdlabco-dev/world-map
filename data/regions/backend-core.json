@@ -1,0 +1,33 @@
+{
+  "id": "backend-core",
+  "name": "後端動力核心",
+  "subtitle": "維持世界運作的伺服器與資料庫引擎",
+  "icon": "⚙️",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 15,
+    "y": 85
+  },
+  "progress": 0,
+  "phase": "Phase 12",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "系統架構",
+      "fileCount": 0
+    }
+  ]
+}

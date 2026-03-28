@@ -1,0 +1,28 @@
+{
+  "id": "online-courses",
+  "name": "全息影像學院",
+  "subtitle": "透過網路傳遞知識的遠端修煉場",
+  "icon": "🎓",
+  "theme": "cyberpunk-tech",
+  "colorScheme": {
+    "primary": "#00d4ff",
+    "accent": "#b44dff",
+    "background": "#0a0a2a"
+  },
+  "position": {
+    "x": 20,
+    "y": 30
+  },
+  "progress": 0,
+  "phase": "Phase 22",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Cipher",
+      "role": "Artificer",
+      "greeting": "歡迎來到機械區，這裡是技術與自動化的核心地帶。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

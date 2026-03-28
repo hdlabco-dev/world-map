@@ -1,0 +1,61 @@
+{
+  "id": "cs-fundamentals",
+  "name": "計算機演算法陣",
+  "subtitle": "探索作業系統與演算法底層的魔法陣",
+  "icon": "💾",
+  "theme": "ancient-knowledge",
+  "colorScheme": {
+    "primary": "#d4a017",
+    "accent": "#e0e0e0",
+    "background": "#1a150a"
+  },
+  "position": {
+    "x": 90,
+    "y": 55
+  },
+  "progress": 0,
+  "phase": "Phase 27",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Chronos",
+      "role": "Historian",
+      "greeting": "時間是最好的老師，歷史中藏著無數寶藏。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "作業系統",
+      "fileCount": 0
+    },
+    {
+      "name": "工程數學",
+      "fileCount": 0
+    },
+    {
+      "name": "機率與統計",
+      "fileCount": 0
+    },
+    {
+      "name": "演算法",
+      "fileCount": 0
+    },
+    {
+      "name": "網路",
+      "fileCount": 0
+    },
+    {
+      "name": "線性代數",
+      "fileCount": 0
+    },
+    {
+      "name": "資料結構",
+      "fileCount": 0
+    },
+    {
+      "name": "離散數學",
+      "fileCount": 0
+    }
+  ]
+}

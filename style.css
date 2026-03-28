@@ -1,0 +1,667 @@
+:root {
+    --bg-dark: #121820;
+    --panel-bg: rgba(26, 32, 44, 0.95);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --font-heading: 'Noto Sans TC', sans-serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+    --accent-blue: #3b82f6;
+    --accent-gold: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* === Top Brand Bar (Like reference image) === */
+.top-brand-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    pointer-events: none;
+    /* Let map click through empty space */
+}
+
+.brand-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+}
+
+.logo-icon {
+    font-size: 3rem;
+    color: #f43f5e;
+}
+
+.brand-left h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #e2e8f0;
+}
+
+.hud-toggle-btn {
+    pointer-events: auto;
+    background: rgba(15, 23, 42, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-muted);
+    padding: 1rem 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hud-toggle-btn:hover {
+    background: rgba(30, 41, 59, 1);
+    color: #fff;
+}
+
+/* === Slide-out Side Panel === */
+.side-panel {
+    position: absolute;
+    top: 0;
+    right: -380px;
+    /* Hidden by default */
+    width: 350px;
+    height: 100vh;
+    background: var(--panel-bg);
+    border-left: 1px solid var(--border-color);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+.close-panel {
+    position: absolute;
+    top: 1rem;
+    left: -3rem;
+    /* Hang out to the left */
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-right: none;
+    color: var(--text-muted);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.close-panel:hover {
+    color: #fff;
+}
+
+.panel-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.player-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.avatar {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-blue);
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.name-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.level-badge {
+    background: var(--accent-gold);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.title {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.exp-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.exp-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-blue);
+    transition: width 0.5s;
+}
+
+.exp-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+    font-family: monospace;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.stat-item {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.stat-val {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Discovery Navigation */
+.nav-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+.nav-section h3 {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.search-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-box i {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+.filters {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.75rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: var(--accent-blue);
+    color: #fff;
+}
+
+.region-list-view {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-right: -0.5rem;
+    padding-right: 0.5rem;
+}
+
+.region-list-view::-webkit-scrollbar {
+    width: 4px;
+}
+
+.region-list-view::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.list-item {
+    padding: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.list-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.list-details {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.list-name {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+
+/* === Right Side Zoom Controls === */
+.zoom-controls {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.zoom-controls button {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-controls button:hover {
+    background: rgba(30, 41, 59, 1);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* === The Map Viewport & Draggable Container === */
+.world-viewport {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    background: #080c12;
+}
+
+.world-viewport:active {
+    cursor: grabbing;
+}
+
+.map-container {
+    position: absolute;
+    width: 3840px;
+    height: 2160px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform-origin: 0 0;
+    top: -500px;
+    left: -500px;
+    transition: transform 0.1s linear;
+}
+
+/* Map Markers (POIs) - Render custom drawn independent buildings */
+.map-marker {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    z-index: 10;
+    width: 250px;
+    height: 300px;
+    /* Big interaction box */
+}
+
+/* Custom Drawn Building Asset */
+.building-asset {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.8));
+    z-index: 5;
+}
+
+.building-asset img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.map-marker:hover .building-asset {
+    transform: translateY(-20px) scale(1.15);
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(var(--marker-color-rgb), 0.8));
+}
+
+/* Marker Label (Text Box) - Much Larger & Clearer */
+.marker-label {
+    background: rgba(15, 23, 42, 0.95);
+    border: 4px solid var(--marker-color);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    white-space: nowrap;
+    margin-bottom: 25px;
+    /* Stay above the pin */
+    pointer-events: none;
+    transition: all 0.2s;
+    backdrop-filter: blur(8px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 0 20px rgba(var(--marker-color-rgb), 0.5);
+}
+
+.map-marker:hover .marker-label {
+    color: #fff;
+    background: rgba(30, 41, 59, 1);
+    border-color: #fff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9), 0 0 30px rgba(var(--marker-color-rgb), 1);
+    transform: translateY(-5px) scale(1.1);
+}
+
+
+/* === Quest Modal (Kept mostly same, adjusted colors) === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.quest-log-content {
+    background: var(--bg-dark);
+    width: 90%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--region-color, #3b82f6);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .quest-log-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #fff;
+}
+
+.quest-header {
+    padding: 1.5rem 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.quest-header .modal-icon {
+    font-size: 2.5rem;
+    color: var(--region-color);
+}
+
+.modal-title h2 {
+    font-size: 1.2rem;
+    color: #f8fafc;
+    font-weight: 500;
+}
+
+.modal-title p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.quest-body {
+    padding: 1.5rem;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.quest-body h3 {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.subfolders-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subfolders-list li {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subfolder-name {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.subfolder-count {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.npc-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 6px;
+    display: flex;
+    gap: 1rem;
+}
+
+.npc-avatar {
+    font-size: 1.5rem;
+}
+
+.npc-dialogue h4 {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.npc-dialogue p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.quest-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: right;
+}
+
+.action-btn {
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #2563eb;
+}

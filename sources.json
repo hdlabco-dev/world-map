@@ -1,0 +1,303 @@
+{
+    "worldName": "我的知識世界",
+    "theme": "fantasy-cyberpunk",
+    "author": "旅行者",
+    "sources": [
+        {
+            "path": "G:/world-map/knowledge/AI 使用額度狀況",
+            "region": "ai-quota-meter",
+            "label": "魔力配額計量儀",
+            "icon": "🔋",
+            "theme": "cyberpunk-tech",
+            "description": "監控施法資源與雲端算力消耗"
+        },
+        {
+            "path": "G:/world-map/knowledge/AI 學習",
+            "region": "ai-learning-hub",
+            "label": "智慧煉金塔",
+            "icon": "🧠",
+            "theme": "cyberpunk-tech",
+            "description": "鑽研人工智慧與機器學習的尖端法門"
+        },
+        {
+            "path": "G:/world-map/knowledge/DevOps 維運",
+            "region": "devops-control-room",
+            "label": "自動化維運中樞",
+            "icon": "🔄",
+            "theme": "cyberpunk-tech",
+            "description": "掌控基礎設施與自動化部署的控制室"
+        },
+        {
+            "path": "G:/world-map/knowledge/Stanford 過往公司",
+            "region": "stanford-archives",
+            "label": "史丹佛舊日遺跡",
+            "icon": "🏛️",
+            "theme": "ancient-knowledge",
+            "description": "封存著過去在 Stanford 的專案與歷史紀錄"
+        },
+        {
+            "path": "G:/world-map/knowledge/USI 公司資料",
+            "region": "usi-database",
+            "label": "USI 商業資料庫",
+            "icon": "🏢",
+            "theme": "corporate-order",
+            "description": "USI 企業的機密檔案與營運數據"
+        },
+        {
+            "path": "G:/world-map/knowledge/健康養生醫療知識",
+            "region": "healing-sanctuary",
+            "label": "生機與治癒神殿",
+            "icon": "🌿",
+            "theme": "mystical-nature",
+            "description": "鑽研身心靈健康與現代醫療的知識"
+        },
+        {
+            "path": "G:/world-map/knowledge/前端知識",
+            "region": "frontend-district",
+            "label": "前端霓虹街區",
+            "icon": "✨",
+            "theme": "creative-dream",
+            "description": "構建視覺介面與使用者互動的華麗都市"
+        },
+        {
+            "path": "G:/world-map/knowledge/創業",
+            "region": "startup-bazaar",
+            "label": "創業家集市",
+            "icon": "🚀",
+            "theme": "social-hub",
+            "description": "充滿機遇、商業模式與點子碰撞的集氣地"
+        },
+        {
+            "path": "G:/world-map/knowledge/外送",
+            "region": "delivery-guild",
+            "label": "疾風速遞公會",
+            "icon": "🛵",
+            "theme": "social-hub",
+            "description": "紀錄穿梭於城市間的跑腿與外送任務"
+        },
+        {
+            "path": "G:/world-map/knowledge/好聽音樂清單",
+            "region": "music-tavern",
+            "label": "吟遊詩人酒館",
+            "icon": "🎵",
+            "theme": "social-hub",
+            "description": "存放著各種觸動靈魂的旋律與音符"
+        },
+        {
+            "path": "G:/world-map/knowledge/廚藝",
+            "region": "culinary-kitchen",
+            "label": "風味煉金房",
+            "icon": "🍳",
+            "theme": "creative-dream",
+            "description": "調配食材與烹飪技法的實驗廚房"
+        },
+        {
+            "path": "G:/world-map/knowledge/後端知識",
+            "region": "backend-core",
+            "label": "後端動力核心",
+            "icon": "⚙️",
+            "theme": "cyberpunk-tech",
+            "description": "維持世界運作的伺服器與資料庫引擎"
+        },
+        {
+            "path": "G:/world-map/knowledge/旅遊景點",
+            "region": "travel-map",
+            "label": "探索者星圖",
+            "icon": "🗺️",
+            "theme": "mystical-nature",
+            "description": "紀錄大千世界壯麗景點的旅行軌跡"
+        },
+        {
+            "path": "G:/world-map/knowledge/書本知識學習",
+            "region": "book-library",
+            "label": "真理大圖書館",
+            "icon": "📚",
+            "theme": "ancient-knowledge",
+            "description": "無數智者心血結晶的藏書閣"
+        },
+        {
+            "path": "G:/world-map/knowledge/每日月追蹤進度",
+            "region": "monthly-tracker",
+            "label": "時鐘塔觀測站",
+            "icon": "�",
+            "theme": "corporate-order",
+            "description": "監測每月修行與任務的進度數據"
+        },
+        {
+            "path": "G:/world-map/knowledge/每日月預計行程",
+            "region": "monthly-schedule",
+            "label": "命運星盤",
+            "icon": "🗓️",
+            "theme": "mystical-nature",
+            "description": "推演與規劃未來的行程與任務"
+        },
+        {
+            "path": "G:/world-map/knowledge/每日零碎知識整理",
+            "region": "daily-fragments",
+            "label": "記憶碎片之泉",
+            "icon": "💧",
+            "theme": "mystical-nature",
+            "description": "收集日常中閃現的靈光與零碎見聞"
+        },
+        {
+            "path": "G:/world-map/knowledge/版控學習",
+            "region": "version-control-vault",
+            "label": "時空檔案庫",
+            "icon": "⏱️",
+            "theme": "cyberpunk-tech",
+            "description": "掌控時間線分歧與版本回溯的技術"
+        },
+        {
+            "path": "G:/world-map/knowledge/看片",
+            "region": "cinema-illusions",
+            "label": "幻影劇院",
+            "icon": "🎬",
+            "theme": "creative-dream",
+            "description": "放映著各種電影與劇集的視覺聖殿"
+        },
+        {
+            "path": "G:/world-map/knowledge/硬體知識",
+            "region": "hardware-forge",
+            "label": "碳基與矽基鍛造廠",
+            "icon": "🔧",
+            "theme": "cyberpunk-tech",
+            "description": "組裝與研究硬體晶片的地下工坊"
+        },
+        {
+            "path": "G:/world-map/knowledge/程式語言學",
+            "region": "programming-sanctuary",
+            "label": "符文語言神殿",
+            "icon": "💻",
+            "theme": "classical-magic",
+            "description": "破譯各種程式語法與基底邏輯的聖地"
+        },
+        {
+            "path": "G:/world-map/knowledge/線上課程總表",
+            "region": "online-courses",
+            "label": "全息影像學院",
+            "icon": "🎓",
+            "theme": "cyberpunk-tech",
+            "description": "透過網路傳遞知識的遠端修煉場"
+        },
+        {
+            "path": "G:/world-map/knowledge/自媒體知識",
+            "region": "self-media-broadcasting",
+            "label": "全域廣播中心",
+            "icon": "📡",
+            "theme": "social-hub",
+            "description": "研究流量密碼與內容傳播的通訊塔"
+        },
+        {
+            "path": "G:/world-map/knowledge/自我成長系列",
+            "region": "self-growth-dojo",
+            "label": "靈魂昇華道場",
+            "icon": "🌱",
+            "theme": "mystical-nature",
+            "description": "鍛鍊心智與自我提升的冥想地"
+        },
+        {
+            "path": "G:/world-map/knowledge/論文學習",
+            "region": "paper-research",
+            "label": "禁忌卷軸研究室",
+            "icon": "📜",
+            "theme": "ancient-knowledge",
+            "description": "解讀學術界最前沿論文的密室"
+        },
+        {
+            "path": "G:/world-map/knowledge/財務",
+            "region": "wealth-vault",
+            "label": "黃金龍地下金庫",
+            "icon": "💰",
+            "theme": "ancient-knowledge",
+            "description": "掌管資源分配、投資與財源累積的秘庫"
+        },
+        {
+            "path": "G:/world-map/knowledge/資工知識",
+            "region": "cs-fundamentals",
+            "label": "計算機演算法陣",
+            "icon": "💾",
+            "theme": "ancient-knowledge",
+            "description": "探索作業系統與演算法底層的魔法陣"
+        },
+        {
+            "path": "G:/world-map/knowledge/運動相關",
+            "region": "training-ground",
+            "label": "勇者修煉場",
+            "icon": "🏃",
+            "theme": "classical-magic",
+            "description": "鍛鍊肉體與體能極限的武育館"
+        },
+        {
+            "path": "G:/world-map/knowledge/雜項待分類",
+            "region": "unclassified-void",
+            "label": "混沌未明之境",
+            "icon": "🌀",
+            "theme": "mystical-nature",
+            "description": "尚未被世界樹體系歸納的奇異物質"
+        },
+        {
+            "path": "G:/world-map/knowledge/面試職缺技能整理",
+            "region": "interview-arena",
+            "label": "職場試煉競技場",
+            "icon": "⚔️",
+            "theme": "corporate-order",
+            "description": "準備迎接各大公會挑戰的戰術兵器房"
+        },
+        {
+            "path": "G:/world-map/knowledge/鳥寶寵物",
+            "region": "pet-aviary",
+            "label": "羽翼精靈鳥園",
+            "icon": "🦜",
+            "theme": "mystical-nature",
+            "description": "飼養與照顧飛羽同伴的溫馨棲地"
+        }
+    ],
+    "regionThemes": {
+        "classical-magic": {
+            "primary": "#8B6914",
+            "accent": "#FFD700",
+            "bg": "#1a1a2e"
+        },
+        "cyberpunk-tech": {
+            "primary": "#00d4ff",
+            "accent": "#b44dff",
+            "bg": "#0a0a2a"
+        },
+        "creative-dream": {
+            "primary": "#ff6ec7",
+            "accent": "#ffd700",
+            "bg": "#1a0a2e"
+        },
+        "mystical-nature": {
+            "primary": "#4ade80",
+            "accent": "#a78bfa",
+            "bg": "#0a1a1a"
+        },
+        "corporate-order": {
+            "primary": "#64748b",
+            "accent": "#f59e0b",
+            "bg": "#1a1a1a"
+        },
+        "ancient-knowledge": {
+            "primary": "#d4a017",
+            "accent": "#e0e0e0",
+            "bg": "#1a150a"
+        },
+        "social-hub": {
+            "primary": "#f97316",
+            "accent": "#ec4899",
+            "bg": "#1a100a"
+        }
+    },
+    "playerDefaults": {
+        "name": "旅行者",
+        "title": "初心者",
+        "level": 1,
+        "stats": {
+            "wisdom": 10,
+            "creativity": 10,
+            "charisma": 10,
+            "endurance": 10
+        }
+    }
+}

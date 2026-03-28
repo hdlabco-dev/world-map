@@ -1,0 +1,30 @@
+{
+  "id": "headquarters",
+  "name": "公司總部",
+  "subtitle": "專案時程、會議紀錄、任務管理",
+  "icon": "🏢",
+  "theme": "corporate-order",
+  "colorScheme": {
+    "primary": "#64748b",
+    "accent": "#f59e0b",
+    "background": "#1a1a1a"
+  },
+  "position": {
+    "x": 80,
+    "y": 30
+  },
+  "progress": 100,
+  "phase": "Phase 3",
+  "totalNodes": 1,
+  "npcs": [
+    {
+      "name": "Director",
+      "role": "Strategist",
+      "greeting": "秩序帶來效率，歡迎來到指揮中心。"
+    }
+  ],
+  "knowledgeNodeIds": [
+    "headquarters--專案Alpha進度-md"
+  ],
+  "subfolders": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "music-tavern",
+  "name": "吟遊詩人酒館",
+  "subtitle": "存放著各種觸動靈魂的旋律與音符",
+  "icon": "🎵",
+  "theme": "social-hub",
+  "colorScheme": {
+    "primary": "#f97316",
+    "accent": "#ec4899",
+    "background": "#1a100a"
+  },
+  "position": {
+    "x": 75,
+    "y": 70
+  },
+  "progress": 0,
+  "phase": "Phase 10",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Herald",
+      "role": "Diplomat",
+      "greeting": "消息在這裡匯聚，人脈在這裡交織。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

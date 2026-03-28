@@ -1,0 +1,28 @@
+{
+  "id": "startup-bazaar",
+  "name": "創業家集市",
+  "subtitle": "充滿機遇、商業模式與點子碰撞的集氣地",
+  "icon": "🚀",
+  "theme": "social-hub",
+  "colorScheme": {
+    "primary": "#f97316",
+    "accent": "#ec4899",
+    "background": "#1a100a"
+  },
+  "position": {
+    "x": 50,
+    "y": 60
+  },
+  "progress": 0,
+  "phase": "Phase 8",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Herald",
+      "role": "Diplomat",
+      "greeting": "消息在這裡匯聚，人脈在這裡交織。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": []
+}

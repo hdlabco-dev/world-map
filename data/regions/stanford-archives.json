@@ -1,0 +1,45 @@
+{
+  "id": "stanford-archives",
+  "name": "史丹佛舊日遺跡",
+  "subtitle": "封存著過去在 Stanford 的專案與歷史紀錄",
+  "icon": "🏛️",
+  "theme": "ancient-knowledge",
+  "colorScheme": {
+    "primary": "#d4a017",
+    "accent": "#e0e0e0",
+    "background": "#1a150a"
+  },
+  "position": {
+    "x": 35,
+    "y": 45
+  },
+  "progress": 0,
+  "phase": "Phase 4",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Chronos",
+      "role": "Historian",
+      "greeting": "時間是最好的老師，歷史中藏著無數寶藏。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "HD 好事多磨",
+      "fileCount": 0
+    },
+    {
+      "name": "PGTalk",
+      "fileCount": 0
+    },
+    {
+      "name": "USI",
+      "fileCount": 0
+    },
+    {
+      "name": "凌群",
+      "fileCount": 0
+    }
+  ]
+}

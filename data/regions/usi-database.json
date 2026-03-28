@@ -1,0 +1,33 @@
+{
+  "id": "usi-database",
+  "name": "USI 商業資料庫",
+  "subtitle": "USI 企業的機密檔案與營運數據",
+  "icon": "🏢",
+  "theme": "corporate-order",
+  "colorScheme": {
+    "primary": "#64748b",
+    "accent": "#f59e0b",
+    "background": "#1a1a1a"
+  },
+  "position": {
+    "x": 65,
+    "y": 45
+  },
+  "progress": 0,
+  "phase": "Phase 5",
+  "totalNodes": 0,
+  "npcs": [
+    {
+      "name": "Director",
+      "role": "Strategist",
+      "greeting": "秩序帶來效率，歡迎來到指揮中心。"
+    }
+  ],
+  "knowledgeNodeIds": [],
+  "subfolders": [
+    {
+      "name": "Liferay 相關知識",
+      "fileCount": 0
+    }
+  ]
+}

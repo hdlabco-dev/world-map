@@ -1,0 +1,27 @@
+[
+  {
+    "id": "dream-garden--靈感筆記-md",
+    "title": "靈感筆記",
+    "regionId": "dream-garden",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "把枯燥的任務變成冒險 進度條比 checklist 更有動力 隨機獎勵 > 固定獎勵（變動比率強化） 程式碼就像樂高積木 API 就像餐廳的菜單 資料庫就像圖書館的目錄系統 用 AI 自動分類筆記 建立個人知識圖譜 做一個像 RPG 的個人管理系統",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\靈感收集\\靈感筆記.md",
+    "relativePath": "靈感筆記.md",
+    "subcategory": "",
+    "tags": [
+      "未來想做的事",
+      "遊戲化設計",
+      "有趣的比喻"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 181,
+      "lines": 17,
+      "headings": 4,
+      "codeBlocks": 0
+    }
+  }
+]

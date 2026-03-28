@@ -1,0 +1,28 @@
+[
+  {
+    "id": "headquarters--專案Alpha進度-md",
+    "title": "專案 Alpha — 進度追蹤",
+    "regionId": "headquarters",
+    "type": "scroll",
+    "rarity": "common",
+    "summary": "專案名稱：Alpha 開始日期：2026-01-15 目標上線：2026-03-01 x 需求分析 x UI 設計稿 後端開發 前端整合 測試 部署上線 討論 API 結構 確認資料庫 schema 分配前後端任務",
+    "content": "# 專案 Alpha — 進度追蹤\n\n## 概要\n- 專案名稱：Alpha\n- 開始日期：2026-01-15\n- 目標上線：2026-03-01\n\n## 里程碑\n- [x] 需求分析\n- [x] UI 設計稿\n- [ ] 後端開發\n- [ ] 前端整合\n- [ ] 測試\n- [ ] 部署上線\n\n## 會議紀錄\n### 2026-02-01\n- 討論 API 結構\n- 確認資料庫 schema\n- 分配前後端任務\n",
+    "sourceFile": "C:\\Users\\itproject-rd\\.gemini\\antigravity\\scratch\\gamified-knowledge-base\\sample_knowledge\\專案管理\\專案Alpha進度.md",
+    "relativePath": "專案Alpha進度.md",
+    "subcategory": "",
+    "tags": [
+      "里程碑",
+      "會議紀錄",
+      "概要"
+    ],
+    "connections": [],
+    "discovered": true,
+    "dateAdded": "2026-02-19",
+    "stats": {
+      "characters": 209,
+      "lines": 21,
+      "headings": 5,
+      "codeBlocks": 0
+    }
+  }
+]
