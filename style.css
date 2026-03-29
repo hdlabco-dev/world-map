@@ -61,7 +61,8 @@ body {
     font-size: 2.2rem;
     font-weight: 800;
     letter-spacing: 2px;
-    color: #e2e8f0;
+    color: #f59e0b;
+    text-shadow: 0 0 8px rgba(245,158,11,0.5);
 }
 
 .hud-toggle-btn {
