@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Socket.io client -->
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,7 @@
         <div class="hud-right">
             <span class="hud-label">探索進度</span>
             <span class="hud-stat" id="hud-explore-progress">0 / 0</span>
+            <span id="hud-connection-status" class="hud-stat hud-connection">● CONNECTING</span>
         </div>
     </div>
 
@@ -56,6 +59,10 @@
     <div id="scan-overlay"></div>
 
     <script src="map-engine.js"></script>
+    <script src="client-socket.js"></script>
+    <script src="agent-overlay.js"></script>
+    <script src="event-feed.js"></script>
+    <script src="agent-hud.js"></script>
     <script src="app.js"></script>
 </body>
 
