@@ -1336,3 +1336,137 @@ body {
 .leaflet-tile {
     filter: brightness(0.6) saturate(0.4) hue-rotate(180deg) !important;
 }
+
+/* ── Dynamic UI — Socket.io / Agent System ─────────────────── */
+
+/* System Update Overlay */
+#system-update-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+.update-content { text-align: center; }
+.update-icon { font-size: 4rem; animation: pulse 0.5s infinite alternate; }
+.update-title { font-size: 2rem; letter-spacing: 0.3em; margin: 1rem 0; }
+.update-msg { color: #94a3b8; letter-spacing: 0.1em; }
+
+/* Agent HUD */
+#agent-hud {
+  position: fixed; left: 12px; top: 60px; z-index: 1000;
+  width: 180px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.hud-title {
+  font-size: 0.65rem; letter-spacing: 0.25em;
+  color: #00f5ff; margin-bottom: 4px;
+}
+.agent-card {
+  background: rgba(10,10,18,0.85);
+  border: 1px solid rgba(0,245,255,0.2);
+  border-left: 3px solid rgba(0,245,255,0.2);
+  border-radius: 4px; padding: 8px 10px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.agent-card.is-working {
+  border-left-color: #f59e0b;
+  box-shadow: -4px 0 12px rgba(245,158,11,0.4);
+  animation: workingPulse 2s infinite;
+}
+.agent-card.is-pr-open { border-left-color: #60a5fa; box-shadow: -4px 0 12px rgba(96,165,250,0.3); }
+.agent-card-avatar { font-size: 1.4rem; margin-bottom: 4px; }
+.agent-card-name { font-size: 0.85rem; font-weight: bold; }
+.agent-card-role { font-size: 0.65rem; color: #64748b; letter-spacing: 0.1em; }
+.agent-card-status { display: flex; align-items: center; gap: 5px; margin-top: 4px; }
+.status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #94a3b8;
+}
+.agent-card[data-status="working"] .status-dot { background: #f59e0b; animation: dotPulse 1s infinite; }
+.agent-card[data-status="pr_open"] .status-dot { background: #60a5fa; }
+.agent-card[data-status="done"] .status-dot { background: #22c55e; }
+.status-text { font-size: 0.65rem; color: #94a3b8; }
+.agent-card-task {
+  font-size: 0.6rem; color: #64748b;
+  margin-top: 4px; max-width: 155px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.agent-card-district { font-size: 0.6rem; color: #00f5ff; margin-top: 2px; }
+#hud-ws-status { font-size: 0.6rem; color: #22c55e; margin-top: 8px; letter-spacing: 0.1em; }
+
+/* Event Feed */
+#event-feed {
+  position: fixed; right: 12px; bottom: 12px; z-index: 1000;
+  width: 320px; max-height: 300px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.feed-header {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.65rem; letter-spacing: 0.2em; color: #00f5ff;
+  padding: 0 4px; margin-bottom: 4px;
+}
+#feed-count { color: #64748b; }
+#feed-list { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.feed-item {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(10,10,18,0.9);
+  border: 1px solid rgba(0,245,255,0.15);
+  border-radius: 4px; padding: 6px 8px;
+  font-size: 0.65rem;
+  animation: slideInRight 0.3s ease;
+  backdrop-filter: blur(8px);
+  transition: opacity 0.5s ease;
+}
+.feed-item.fading { opacity: 0; }
+.feed-icon { font-size: 0.9rem; flex-shrink: 0; }
+.feed-body { flex: 1; overflow: hidden; }
+.feed-agent { font-weight: bold; margin-right: 4px; }
+.feed-msg { color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.feed-time { color: #475569; flex-shrink: 0; font-size: 0.6rem; }
+
+/* Agent Map Marker */
+.agent-marker {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; pointer-events: none;
+}
+.agent-avatar {
+  font-size: 1.5rem;
+  background: rgba(10,10,18,0.9);
+  border: 2px solid rgba(0,245,255,0.5);
+  border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 12px rgba(0,245,255,0.4);
+  animation: agentFloat 3s ease-in-out infinite;
+}
+.agent-marker .agent-name {
+  font-size: 0.6rem; color: #e2e8f0;
+  background: rgba(10,10,18,0.8);
+  padding: 1px 5px; border-radius: 3px; margin-top: 2px;
+  white-space: nowrap;
+}
+.agent-marker .agent-status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #94a3b8; margin-top: 2px;
+}
+
+/* HUD 連線狀態 */
+.hud-connection { font-size: 0.65rem; color: #94a3b8; }
+
+/* Keyframe Animations */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);   opacity: 1; }
+}
+@keyframes agentFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+@keyframes workingPulse {
+  0%, 100% { box-shadow: -4px 0 12px rgba(245,158,11,0.4); }
+  50%      { box-shadow: -4px 0 20px rgba(245,158,11,0.8); }
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.8); }
+}
