@@ -37,5 +37,8 @@
       "name": "面試技巧",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 2000,
+  "y": 600,
+  "type": "DISTRICT"
 }

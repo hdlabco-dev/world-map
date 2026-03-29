@@ -37,5 +37,8 @@
       "name": "跑單技巧",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 1200,
+  "y": 300,
+  "type": "DISTRICT"
 }

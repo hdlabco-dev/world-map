@@ -33,5 +33,8 @@
       "name": "NETFLIX",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 1600,
+  "y": 0,
+  "type": "DISTRICT"
 }
