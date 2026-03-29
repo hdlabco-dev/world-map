@@ -578,7 +578,7 @@ body {
 
 .quest-body {
     padding: 1.5rem;
-    max-height: 50vh;
+    max-height: 65vh;
     overflow-y: auto;
 }
 
@@ -664,4 +664,285 @@ body {
 
 .action-btn:hover {
     background: #2563eb;
+}
+
+/* ============================================================
+   Feature A: Knowledge Node Browser
+   ============================================================ */
+
+.knowledge-section {
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+}
+
+.knowledge-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+}
+
+.region-progress-bar {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    height: 5px;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+}
+
+.region-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-blue), #a855f7);
+    transition: width 0.5s ease;
+}
+
+.region-progress-text {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-bottom: 0.8rem;
+    font-family: monospace;
+}
+
+.knowledge-nodes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.knowledge-nodes-list::-webkit-scrollbar {
+    width: 3px;
+}
+
+.knowledge-nodes-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+}
+
+/* Rarity border colours via CSS custom property */
+.knowledge-node {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 5px;
+    border-left: 3px solid var(--node-rarity-color, #475569);
+    padding: 0.55rem 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.knowledge-node:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.knowledge-node.explored {
+    opacity: 0.6;
+}
+
+.knowledge-node-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.node-type-icon {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    width: 14px;
+    flex-shrink: 0;
+}
+
+.node-title {
+    font-size: 0.8rem;
+    color: #e2e8f0;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.node-rarity-badge {
+    font-size: 0.6rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #000;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.node-exp-badge {
+    font-size: 0.65rem;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    font-family: monospace;
+    min-width: 38px;
+    text-align: right;
+}
+
+.node-summary {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.node-summary.open {
+    display: block;
+}
+
+.node-summary p {
+    margin-bottom: 0.5rem;
+}
+
+.node-explore-btn {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: var(--accent-blue);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: var(--font-body);
+    transition: all 0.2s;
+}
+
+.node-explore-btn:hover:not(:disabled) {
+    background: rgba(59, 130, 246, 0.35);
+}
+
+.node-explore-btn.explored-btn {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.5);
+    color: #10b981;
+    cursor: default;
+}
+
+/* ============================================================
+   Feature B: Level Up Toast
+   ============================================================ */
+
+.levelup-toast {
+    position: fixed;
+    top: 5rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #f59e0b, #f43f5e);
+    color: #000;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: levelup-appear 2.5s ease forwards;
+    box-shadow: 0 5px 25px rgba(245, 158, 11, 0.5);
+    letter-spacing: 1px;
+}
+
+@keyframes levelup-appear {
+    0%   { opacity: 0; transform: translateY(15px) scale(0.85); }
+    20%  { opacity: 1; transform: translateY(0) scale(1.05); }
+    40%  { transform: translateY(0) scale(1); }
+    70%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-25px); }
+}
+
+/* ============================================================
+   Feature B: Explored Region Map Marker Effect
+   ============================================================ */
+
+.map-marker.explored .building-asset {
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));
+}
+
+.map-marker.explored .marker-label {
+    border-color: #10b981;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.map-marker.explored .marker-label::after {
+    content: ' ✓';
+    color: #10b981;
+}
+
+/* ============================================================
+   Feature B: Mark as Explored Button
+   ============================================================ */
+
+.explore-region-btn {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #10b981;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    transition: all 0.2s;
+    margin-right: 0.5rem;
+}
+
+.explore-region-btn:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.3);
+}
+
+.explore-region-btn.explored {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: rgba(16, 185, 129, 0.6);
+    cursor: default;
+}
+
+/* ============================================================
+   Feature B: Explore Progress HUD (bottom-left)
+   ============================================================ */
+
+.explore-progress-hud {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 40;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.explore-progress-hud strong {
+    color: #10b981;
+}
+
+.explore-progress-hud i {
+    color: var(--accent-gold);
+}
+
+/* ============================================================
+   Feature B: Sidebar List Explored Badge
+   ============================================================ */
+
+.list-explored-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    font-size: 0.6rem;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-weight: bold;
 }
