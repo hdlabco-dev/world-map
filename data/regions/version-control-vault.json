@@ -37,5 +37,8 @@
       "name": "GITLAB",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 1600,
+  "y": 1500,
+  "type": "DISTRICT"
 }

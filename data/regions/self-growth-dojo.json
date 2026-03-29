@@ -29,5 +29,8 @@
       "name": "養成好習慣",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 800,
+  "y": 1200,
+  "type": "DISTRICT"
 }

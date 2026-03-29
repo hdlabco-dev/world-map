@@ -53,5 +53,8 @@
       "name": "電路學",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 800,
+  "y": 600,
+  "type": "DISTRICT"
 }

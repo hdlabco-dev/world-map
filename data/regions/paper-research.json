@@ -29,5 +29,8 @@
       "name": "EDA 論文",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 2000,
+  "y": 900,
+  "type": "DISTRICT"
 }

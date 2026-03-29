@@ -33,5 +33,8 @@
       "name": "每日每月收入支出紀錄",
       "fileCount": 0
     }
-  ]
+  ],
+  "x": 2000,
+  "y": 1500,
+  "type": "FINANCIAL HUB"
 }
