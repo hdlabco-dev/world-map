@@ -1,8 +1,3 @@
-/**
- * client-socket.js — Socket.io 客戶端與城市事件 bus
- * 所有動態功能的基礎層，其他模組透過 window.CityBus 監聽事件。
- */
-
 // 全域狀態
 window.cityState = {
   agents: {},   // 從 server 同步
@@ -10,24 +5,16 @@ window.cityState = {
   connected: false
 };
 
-// 簡易 EventEmitter
+// 簡易 EventEmitter（不用 npm，手寫）
 window.CityBus = {
   _listeners: {},
-
   on(event, fn) {
-    if (!this._listeners[event]) {
-      this._listeners[event] = [];
-    }
+    if (!this._listeners[event]) this._listeners[event] = [];
     this._listeners[event].push(fn);
   },
-
   emit(event, data) {
-    const fns = this._listeners[event];
-    if (fns) {
-      fns.forEach(fn => fn(data));
-    }
+    (this._listeners[event] || []).forEach(fn => fn(data));
   },
-
   off(event, fn) {
     if (!this._listeners[event]) return;
     this._listeners[event] = this._listeners[event].filter(f => f !== fn);
@@ -36,6 +23,7 @@ window.CityBus = {
 
 // city:reload 處理
 CityBus.on('city:reload', (data) => {
+  // 顯示 SYSTEM UPDATE overlay 3 秒後 reload
   const overlay = document.createElement('div');
   overlay.id = 'system-update-overlay';
   overlay.innerHTML = `
@@ -49,77 +37,61 @@ CityBus.on('city:reload', (data) => {
   setTimeout(() => location.reload(), 3000);
 });
 
-// 連線狀態 HUD 更新
-function updateConnectionStatus(connected) {
-  const el = document.getElementById('hud-connection-status');
-  if (!el) return;
-  if (connected) {
-    el.textContent = '● ONLINE';
-    el.style.color = '#00ff88';
-    el.style.animation = '';
-  } else {
-    el.textContent = '● OFFLINE';
-    el.style.color = '#ff3333';
-    el.style.animation = 'blink 1s step-start infinite';
-  }
-}
+// 連接到同一個 origin（nginx proxy 已設定 /socket.io/ 路由）
+const socket = io();
 
-// Socket.io 連線（連接到同一個 origin，nginx proxy 已設定 /socket.io/ 路由）
-(function initSocket() {
-  if (typeof io === 'undefined') {
-    console.warn('[client-socket] Socket.io not loaded, skipping socket init');
-    return;
+socket.on('connect', async () => {
+  window.cityState.connected = true;
+  CityBus.emit('city:connected', {});
+
+  // 連線狀態顯示
+  const statusEl = document.getElementById('hud-connection-status');
+  if (statusEl) {
+    statusEl.textContent = '● ONLINE';
+    statusEl.style.color = '#00ff88';
+    statusEl.style.animation = '';
   }
 
-  const socket = io();
-
-  socket.on('connect', async () => {
-    window.cityState.connected = true;
-    updateConnectionStatus(true);
-    CityBus.emit('city:connected', {});
-
-    // server 會自動發 city_state，但也準備 fallback
-    setTimeout(async () => {
-      if (Object.keys(window.cityState.agents).length === 0) {
-        try {
-          const res = await fetch('/api/city');
-          const data = await res.json();
-          window.cityState = { ...window.cityState, ...data };
-          CityBus.emit('city:state', data);
-        } catch (err) {
-          console.warn('[client-socket] fallback fetch /api/city failed:', err);
-        }
-      }
-    }, 2000);
-  });
-
-  socket.on('disconnect', () => {
-    window.cityState.connected = false;
-    updateConnectionStatus(false);
-    CityBus.emit('city:disconnected', {});
-  });
-
-  socket.on('city_state', (data) => {
-    window.cityState = { ...window.cityState, ...data };
-    CityBus.emit('city:state', data);
-  });
-
-  socket.on('city_event', (data) => {
-    window.cityState.events.unshift(data);
-    if (window.cityState.events.length > 50) {
-      window.cityState.events.length = 50;
+  // server 會自動發 city_state，但也準備 fallback
+  setTimeout(async () => {
+    if (Object.keys(window.cityState.agents).length === 0) {
+      const res = await fetch('/api/city');
+      const data = await res.json();
+      window.cityState = { ...window.cityState, ...data };
+      CityBus.emit('city:state', data);
     }
-    CityBus.emit('city:event', data);
-  });
+  }, 2000);
+});
 
-  socket.on('agent_update', (data) => {
-    if (data && data.id) {
-      window.cityState.agents[data.id] = data;
-    }
-    CityBus.emit('agent:update', data);
-  });
+socket.on('disconnect', () => {
+  window.cityState.connected = false;
+  CityBus.emit('city:disconnected', {});
 
-  socket.on('city_reload', (data) => {
-    CityBus.emit('city:reload', data);
-  });
-})();
+  // 連線狀態顯示
+  const statusEl = document.getElementById('hud-connection-status');
+  if (statusEl) {
+    statusEl.textContent = '● OFFLINE';
+    statusEl.style.color = '#ff3333';
+    statusEl.style.animation = 'blink 1s step-start infinite';
+  }
+});
+
+socket.on('city_state', (data) => {
+  window.cityState = { ...window.cityState, ...data };
+  CityBus.emit('city:state', data);
+});
+
+socket.on('city_event', (data) => {
+  window.cityState.events.unshift(data);
+  if (window.cityState.events.length > 50) window.cityState.events.length = 50;
+  CityBus.emit('city:event', data);
+});
+
+socket.on('agent_update', (data) => {
+  if (data && data.id) window.cityState.agents[data.id] = data;
+  CityBus.emit('agent:update', data);
+});
+
+socket.on('city_reload', (data) => {
+  CityBus.emit('city:reload', data);
+});
